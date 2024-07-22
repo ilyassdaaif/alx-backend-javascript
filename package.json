@@ -1,0 +1,28 @@
+{
+  "name": "alx-backend-javascript",
+  "version": "1.0.0",
+  "description": "alx-backend-javascript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx babel-node 0-main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyassdaaif/alx-backend-javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilyassdaaif/alx-backend-javascript/issues"
+  },
+  "homepage": "https://github.com/ilyassdaaif/alx-backend-javascript#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.7",
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6"
+  }
+}
