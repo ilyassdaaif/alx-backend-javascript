@@ -1,8 +1,6 @@
-function getResponseFromAPI() {
+export default function getResponseFromAPI() {
   return new Promise((resolve, reject) => {
-    // The Promise doesn't need to do anything specific in this case
-    // It just needs to be a valid Promise object
+    // Simulate API call
+    resolve('API response');
   });
 }
-
-export default getResponseFromAPI;
