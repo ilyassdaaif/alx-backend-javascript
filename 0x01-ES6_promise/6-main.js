@@ -1,9 +1,3 @@
 import handleProfileSignup from './6-final-user';
 
-handleProfileSignup("Bob", "Dylan", "bob_dylan.jpg")
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+handleProfileSignup("Bob", "Dylan", "bob_dylan.jpg").then(console.log);
