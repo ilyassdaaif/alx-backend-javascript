@@ -4,7 +4,7 @@ function handleProfileSignup() {
   return Promise.all([uploadPhoto(), createUser()])
     .then(([photoResponse, userResponse]) => {
       console.log(
-	`${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`
+        `${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`
       );
     })
     .catch(() => {
