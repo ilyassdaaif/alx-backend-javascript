@@ -1,4 +1,4 @@
-/**
+/*
  * Represents a Holberton Course.
  */
 export default class HolbertonCourse {
