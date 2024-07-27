@@ -1,14 +1,7 @@
 export default class Currency {
   constructor(code, name) {
-    this._code = this._validateString(code, 'Code');
-    this._name = this._validateString(name, 'Name');
-  }
-
-  _validateString(value, attribute) {
-    if (typeof value !== 'string') {
-      throw new TypeError(`${attribute} must be a string`);
-    }
-    return value;
+    this.code = code;
+    this.name = name;
   }
 
   get code() {
@@ -16,7 +9,7 @@ export default class Currency {
   }
 
   set code(value) {
-    this._code = this._validateString(value, 'Code');
+    this._code = value;
   }
 
   get name() {
@@ -24,10 +17,14 @@ export default class Currency {
   }
 
   set name(value) {
-    this._name = this._validateString(value, 'Name');
+    this._name = value;
   }
 
+  /**
+   * Creates the full string representation of this Currency.
+   * @returns {String}
+   */
   displayFullCurrency() {
-    return `${this._name} (${this._code})`;
+    return `${this.name} (${this.code})`;
   }
 }
