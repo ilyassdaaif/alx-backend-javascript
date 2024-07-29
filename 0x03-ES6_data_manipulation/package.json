@@ -1,8 +1,4 @@
 {
-    "name": "alx-backend-javascript",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
     "type": "module",
     "scripts": {
       "lint": "./node_modules/.bin/eslint",
