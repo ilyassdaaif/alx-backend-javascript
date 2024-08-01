@@ -21,25 +21,19 @@ const student2: Student = {
 
 const studentsList: Student[] = [student1, student2];
 
-function renderTable(students: Student[]): void {
-  const table = document.createElement('table');
-  const tbody = document.createElement('tbody');
-
+function createTableHTML(students: Student[]): string {
+  let tableHTML = '<table><tbody>';
+  
   students.forEach((student) => {
-    const row = document.createElement('tr');
-    const firstNameCell = document.createElement('td');
-    const locationCell = document.createElement('td');
-
-    firstNameCell.textContent = student.firstName;
-    locationCell.textContent = student.location;
-
-    row.appendChild(firstNameCell);
-    row.appendChild(locationCell);
-    tbody.appendChild(row);
+    tableHTML += `<tr>
+      <td>${student.firstName}</td>
+      <td>${student.location}</td>
+    </tr>`;
   });
 
-  table.appendChild(tbody);
-  document.body.appendChild(table);
+  tableHTML += '</tbody></table>';
+  return tableHTML;
 }
 
-renderTable(studentsList);
+const tableHTML = createTableHTML(studentsList);
+console.log(tableHTML);
