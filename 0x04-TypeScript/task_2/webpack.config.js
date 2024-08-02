@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
+  mode: "development",
   entry: "./js/main.ts",
   devtool: "inline-source-map",
   module: {
@@ -33,5 +34,9 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist")
-  }
+  },
+  optimization: {
+    minimize: false
+  },
+  devtool: 'inline-source-map',
 };
