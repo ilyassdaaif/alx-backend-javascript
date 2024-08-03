@@ -51,11 +51,6 @@ function createEmployee(salary: number | string): Director | Teacher {
     }
 }
 
-// Test the function
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
-
 // Type predicate function to check if an employee is a Director
 function isDirector(employee: Teacher | Director): employee is Director {
   return (employee as Director).workDirectorTasks !== undefined;
@@ -70,5 +65,29 @@ function executeWork(employee: Teacher | Director): string {
   }
 }
 
+// String Literal type for Subjects
+type Subjects = 'Math' | 'History';
+
+// Function to teach class based on the subject
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  } else {
+    return 'Invalid subject'
+  }
+}
+
+// Test the function
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+console.log(createEmployee('$500'));
+
+// Previous test cases
 console.log(executeWork(createEmployee(200)));
 console.log(executeWork(createEmployee(1000)));
+
+// New test cases
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
