@@ -9,10 +9,16 @@ console.log('Welcome to Holberton School, what is your name?');
 
 rl.question('', (name) => {
   console.log(`Your name is: ${name}`);
+  
+  // Check if we're in non-interactive mode (piped input)
+  if (!process.stdin.isTTY) {
+    console.log('This important software is now closing');
+  }
+
   rl.close();
 });
 
-rl.on('close', () => {
-  console.log('This important software is now closing');
-  process.exit(0);
+// Handle Ctrl+C
+rl.on('SIGINT', () => {
+  rl.close();
 });
