@@ -1,24 +1,12 @@
-const readline = require('readline');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-console.log('Welcome to Holberton School, what is your name?');
-
-rl.question('', (name) => {
-  console.log(`Your name is: ${name}`);
-  
-  // Check if we're in non-interactive mode (piped input)
-  if (!process.stdin.isTTY) {
-    console.log('This important software is now closing');
+process.stdin.on('readable', () => {
+  const chunk = process.stdin.read();
+  if (chunk !== null) {
+    process.stdout.write(`Your name is: ${chunk}`);
   }
-
-  rl.close();
 });
 
-// Handle Ctrl+C
-rl.on('SIGINT', () => {
-  rl.close();
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });
