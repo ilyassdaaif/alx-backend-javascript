@@ -25,10 +25,7 @@ function countStudents(path) {
       console.log(`Number of students in ${field}: ${fieldMap[field].length}. List: ${fieldMap[field].join(', ')}`);
     }
   } catch (err) {
-    if (err.code === 'ENOENT') {
-      throw new Error('Cannot load the database');
-    }
-    throw err;
+    throw new Error('Cannot load the database');
   }
 }
 
