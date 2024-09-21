@@ -1,0 +1,16 @@
+{
+  "name": "0x05-Node_JS_basic",
+  "version": "1.0.0",
+  "description": "Node JS basic",
+  "main": ".eslintrc.js",
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
