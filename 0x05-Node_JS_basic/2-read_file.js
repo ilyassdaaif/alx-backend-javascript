@@ -1,12 +1,30 @@
-process.stdout.write('Welcome to Holberton School, what is your name?\n');
+const fs = require('fs');
 
-process.stdin.on('readable', () => {
-  const chunk = process.stdin.read();
-  if (chunk !== null) {
-    process.stdout.write(`Your name is: ${chunk}`);
+function countStudents(path) {
+  let data;
+  try {
+    data = fs.readFileSync(path, 'utf8');
+  } catch (error) {
+    throw new Error('Cannot load the database');
   }
-});
 
-process.stdin.on('end', () => {
-  process.stdout.write('This important software is now closing\n');
-});
+  const lines = data.split('\n').filter(line => line.trim());
+  const students = lines.slice(1);
+
+  console.log(`Number of students: ${students.length}`);
+
+  const fields = {};
+  students.forEach((student) => {
+    const [firstName, , , field] = student.split(',');
+    if (!fields[field]) {
+      fields[field] = [];
+    }
+    fields[field].push(firstName);
+  });
+
+  for (const [field, names] of Object.entries(fields)) {
+    console.log(`Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`);
+  }
+}
+
+module.exports = countStudents;
