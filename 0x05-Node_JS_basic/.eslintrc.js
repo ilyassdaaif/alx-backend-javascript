@@ -1,6 +1,7 @@
 module.exports = {
   env: {
-    browser: false,
+    browser: true,
+    commonjs: true,
     es6: true,
     jest: true,
   },
@@ -13,7 +14,7 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 12,
     sourceType: 'module',
   },
   plugins: ['jest'],
@@ -26,6 +27,8 @@ module.exports = {
       'error',
       'LabeledStatement',
       'WithStatement',
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-param-reassign": ["error", { "props": false }]
     ],
   },
   overrides:[
