@@ -7,13 +7,13 @@ const port = 1245;
 const countStudents = async (path) => {
   try {
     const data = await fs.readFile(path, 'utf8');
-    const lines = data.split('\n').filter(line => line.trim() !== '');
+    const lines = data.split('\n').filter((line) => line.trim() !== '');
     const students = lines.slice(1); // Remove header
 
     const fields = {};
     let totalStudents = 0;
 
-    students.forEach(student => {
+    students.forEach((student) => {
       const [firstName, , , field] = student.split(',');
       if (field) {
         if (!fields[field]) {
@@ -49,7 +49,7 @@ app.get('/students', async (req, res) => {
     const studentsInfo = await countStudents(databasePath);
     res.send(`This is the list of our students\n${studentsInfo}`);
   } catch (error) {
-    res.status(500).send('Cannot load the database');
+    res.status(500).send(error.message);
   }
 });
 
