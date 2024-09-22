@@ -8,7 +8,7 @@ const countStudents = async (path) => {
   try {
     const data = await fs.readFile(path, 'utf8');
     const lines = data.split('\n').filter(line => line.trim() !== '');
-    const students = lines.slice(1);  // Remove header
+    const students = lines.slice(1); // Remove header
 
     const fields = {};
     let totalStudents = 0;
@@ -43,6 +43,9 @@ app.get('/', (req, res) => {
 app.get('/students', async (req, res) => {
   try {
     const databasePath = process.argv[2];
+    if (!databasePath) {
+      throw new Error('Cannot load the database');
+    }
     const studentsInfo = await countStudents(databasePath);
     res.send(`This is the list of our students\n${studentsInfo}`);
   } catch (error) {
