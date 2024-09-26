@@ -1,31 +1,14 @@
 const request = require('request');
-const chai = require('chai');
-const expect = chai.expect;
+const { expect } = require('chai');
 
-describe('Index page', () => {
-    it('should return status code 200', (done) => {
-        request('http://localhost:7865', (error, response, body) => {
-            if (error) {
-                console.error('Error occurred:', error);
-                done(error); // Pass the error to the done function
-                return;
-            }
-            expect(response).to.exist; // Ensure response is not undefined
-            expect(response.statusCode).to.equal(200);
-            done();
-        });
-    });
+describe('API integration test', () => {
+  const API_URL = 'http://localhost:7865';
 
-    it('should return the correct message', (done) => {
-        request('http://localhost:7865', (error, response, body) => {
-            if (error) {
-                console.error('Error occurred:', error);
-                done(error);
-                return;
-            }
-            expect(response).to.exist; // Ensure response is not undefined
-            expect(body).to.equal('Welcome to the payment system');
-            done();
-        });
+  it('GET / returns correct response', (done) => {
+    request.get(`${API_URL}/`, (_err, res, body) => {
+      expect(res.statusCode).to.be.equal(200);
+      expect(body).to.be.equal('Welcome to the payment system');
+      done();
     });
+  });
 });
