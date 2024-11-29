@@ -1,5 +1,4 @@
-function calculateNumber(a, b) {
-  return Math.round(a) + Math.round(b);
+const calculateNumber(a, b) {
+  round(a, b);
+  return a + b;
 }
-
-module.exports = calculateNumber;
